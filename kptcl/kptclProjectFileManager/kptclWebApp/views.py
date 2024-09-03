@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 # Create your views here.
-def response(request):
-    return render(request, "Contractor_dash.html", None)
+def dashboard(request):
+    return render(request, "dashboard/Contractor_dash.html", None)
