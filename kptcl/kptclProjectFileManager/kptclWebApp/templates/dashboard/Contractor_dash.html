@@ -1,32 +1,28 @@
+{% extends "dash_base.html" %}
 {%load  static%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contractor-dash</title>
-    <link rel="stylesheet" href="{%static 'css/dashboard.css'%}">
-</head>
-<body>
-    <nav>
+
+    {% block title %}Contractor dashboard{% endblock%}
+    {% block nav_bar %}
+        
         <button class = "tabs active">
-            <img src="" alt="">
-            Notifications
+            <i class="fa-solid fa-bell"></i>
+            &nbsp;Notifications
         </button>
         <button class = "tabs">
-            <img src="" alt="">
-            Revisions
+            <i class="fa-solid fa-book"></i>
+            &nbsp;Revisions
         </button>
         <button class = "tabs">
-            <img src="" alt="">
-            Upload Files
+            <i class="fa-solid fa-upload"></i>
+            &nbsp;Upload files
         </button>
         <button class = "tabs">
-            <img src="" alt="">
-            published files
+            <i class="fa-solid fa-paper-plane"></i>
+            &nbsp;Published files
         </button>
-    </nav>
-    <div class = "container"> 
+    {% endblock %}
+    {% block content %}
+        
         <div class="content active">
             <div class="section-heading">
                 <h1>Notifications</h1> 
@@ -45,7 +41,75 @@
             <div class="section-heading">
                 <h1>Upload Project Files</h1> 
             </div>
-            hi
+            <div class="select-upload-type">
+                <label for="new-file-upload"><input id="new-file-upload" type="checkbox"> New files</label>
+                <label for="existing-file-update"><input id="existing-file-update" type="checkbox"> Revise existing file</label>
+            </div>
+            <div id="new-project-file" style="display: none;">
+                <form method="post">
+                    <fieldset>
+                        <legend>Upload New files</legend>
+                        <li>
+                            <label for="">File Name:</label>
+                            <input class="form-input" type="text">
+                        </li>
+                        <br>
+                        <li>
+                            <label for="">DWID : </label>
+                            <input class="form-input" type="text" name="" id="dwid" readonly style="cursor: not-allowed;">
+                        </li>
+                        <br>
+                        <li>
+                            <label for="">Description</label>
+                            <textarea class="form-input2" type="text" name="" id=""></textarea>
+                        </li>
+                        <br>
+                        <li>
+                            <label for="">Tags: </label>
+                            <input class="form-input" type="text" name="" id="tags">
+                        </li>
+                        <br>
+                        <li>
+                            <label for="upload-file">Upload file</label>
+                            <input class="form-input" type="file" id="new-file">
+                        </li>
+                        <br>
+                        <li class="submit-btn-container"></li>
+                            <button class="submit-btn">Submit</button>
+                        </li>
+                    </fieldset>
+                </form>
+            </div>
+            <div id="update-project-file" style="display: none;">
+                <form method="post">
+                    <fieldset>
+                        <legend>Update files</legend>
+                        <li>
+                            <label for="">File Name:</label>
+                            <input class="form-input" type="text">
+                        </li>
+                        <br>
+                        <li>
+                            <label for="">DWID : </label>
+                            <input class="form-input" type="text" name="" id="dwid" placeholder="Enter the Drawing Id of the file to be revised">
+                        </li>
+                        <br>
+                        <li>
+                            <label for="">Description</label>
+                            <textarea class="form-input2" type="text" name="" id="Description" placeholder="Describe the revisions carried out"></textarea>
+                        </li>
+                        <br>
+                        <li>
+                            <label for="upload-file">Upload file</label>
+                            <input class="form-input" type="file" id="new-file">
+                        </li>
+                        <br>
+                        <li class="submit-btn-container">
+                            <button class="submit-btn">Submit</button>
+                        </li>
+                    </fieldset>
+                </form>
+            </div>
         </div>
         <div class="content">
             <div class="section-heading">
@@ -53,7 +117,6 @@
             </div>
             hi
         </div>
-    </div>
-    <script src="{%static 'JS/content-render.js'%}"></script>
-</body>
-</html>
+        <script src="{%static 'JS/content-render.js'%}"></script>
+        <script src="{%static 'JS/form-visibility.js'%}"></script>
+    {% endblock%}

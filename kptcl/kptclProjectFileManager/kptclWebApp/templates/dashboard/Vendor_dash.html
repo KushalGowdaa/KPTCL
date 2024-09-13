@@ -1,0 +1,73 @@
+
+{% extends "dash_base.html" %}
+{% load static %}
+
+    {% block title %}Vendor Dashboard{% endblock %}
+    {% block nav_bar %}
+    
+        <button class = "tabs active">
+            <i class="fa-solid fa-house"></i>
+            &nbsp;Home
+        </button>
+        <button class = "tabs">
+            <i class="fa-solid fa-book"></i>
+            &nbsp;Revisions
+        </button>
+        <button class = "tabs">
+            <i class="fa-solid fa-signal"></i>
+            &nbsp;Status
+        </button>
+        <button class = "tabs">
+            <i class="fa-solid fa-paper-plane"></i>
+            &nbsp;Published files
+        </button>
+
+    {% endblock %}
+
+    {% block content %}
+    
+        <div class="content active">
+            <div class="section-heading">
+                <h1>Home</h1> 
+            </div>
+            <ul>
+                <div class="new-files">
+                    <h3>New Files</h3>
+                    <p>0</p>
+                </div>
+                <div class="pending-files">
+                    <h3>Pending Files</h3>
+                    <p>0</p>
+                </div>
+                <div class="revision-files">
+                    <h3>files under Revision</h3>
+                    <p>0</p>
+                </div>
+                <div class="published-files">
+                    <h3>Published Files</h3>
+                    <p>0</p>
+                </div>
+            </ul>
+
+        </div>
+        <div class="content">
+            <div class="section-heading">
+                <h1>Revisions</h1> 
+            </div>
+            hi
+        </div>
+        <div class="content">
+            <div class="section-heading">
+                <h1>Status</h1> 
+            </div>
+            hi
+        </div>
+        <div class="content">
+            <div class="section-heading">
+                <h1>Published files</h1> 
+            </div>
+            hi
+        </div>
+        <script src="{%static 'JS/content-render.js'%}"></script>
+
+    {% endblock %}
